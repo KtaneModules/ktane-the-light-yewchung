@@ -1,0 +1,10 @@
+{
+  "name": "theLight-Editor",
+  "references": [
+    "theLight"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": []
+}
