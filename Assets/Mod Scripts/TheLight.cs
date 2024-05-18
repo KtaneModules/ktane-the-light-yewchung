@@ -16,6 +16,7 @@ public class TheLight : MonoBehaviour {
 	 public Light Light;
 	 public MeshRenderer lightRenderer;
    public TextMesh colorBlindText;
+   public bool TwitchCBMode = false;
 	 private static readonly string[] colornames = {"White", "Blue", "Yellow", "Red", "Green", "Cyan", "Magenta", "Black"};
    private static readonly Color32 offColor = new Color32(225, 221, 202, 140);
    private static readonly Color32[] colors = {new Color32(235, 235, 235, 180), new Color32(55, 55, 235, 180), new Color32(235, 235, 55, 180),
@@ -227,7 +228,7 @@ public class TheLight : MonoBehaviour {
        Light.enabled = true;
        Light.color = colors[i];
        lightRenderer.material.color = colors[i];
-       if (Colorblind) {
+       if (Colorblind.ColorblindModeActive || TwitchCBMode) {
          colorBlindText.text = colornames[i];
        }
      } else {

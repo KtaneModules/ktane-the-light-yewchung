@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 114358182503107866}
   - component: {fileID: 114581438888261598}
   - component: {fileID: 114408165301219464}
+  - component: {fileID: 114382209115355990}
   m_Layer: 0
   m_Name: ThePsychicLightModule
   m_TagString: Untagged
@@ -891,6 +892,18 @@ MonoBehaviour:
   ModuleType: thePsychicLight
   ModuleDisplayName: The Psychic Light
   RequiresTimerVisibility: 0
+--- !u!114 &114382209115355990
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1431554231746738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1cfb889a07d5fd4e9baed7960bb397f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colorblindMode: 0
 --- !u!114 &114399098570129884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -917,11 +930,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bomb: {fileID: 114241917553770452}
   Audio: {fileID: 114350651804834918}
-  Colorblind: {fileID: 0}
+  Colorblind: {fileID: 114382209115355990}
   lightSelectable: {fileID: 114700150478934834}
   Light: {fileID: 108103245541799868}
   lightRenderer: {fileID: 23335539854310672}
   colorBlindText: {fileID: 102190645287482608}
+  TwitchCBMode: 0
 --- !u!114 &114491343760993310
 MonoBehaviour:
   m_ObjectHideFlags: 1

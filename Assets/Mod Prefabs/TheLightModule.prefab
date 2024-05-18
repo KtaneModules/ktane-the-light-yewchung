@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 114003484487034174}
   - component: {fileID: 114733853258008494}
   - component: {fileID: 114696122769226040}
+  - component: {fileID: 114444087679550688}
   m_Layer: 0
   m_Name: TheLightModule
   m_TagString: Untagged
@@ -889,6 +890,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighlightScale: {x: 1, y: 1, z: 1}
   OutlineAmount: 0
+--- !u!114 &114444087679550688
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1883935955566798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1cfb889a07d5fd4e9baed7960bb397f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colorblindMode: 0
 --- !u!114 &114555133248333002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -954,11 +967,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bomb: {fileID: 114877291329443102}
   Audio: {fileID: 114787021008434336}
-  Colorblind: {fileID: 0}
+  Colorblind: {fileID: 114444087679550688}
   lightSelectable: {fileID: 114158213760788134}
   Light: {fileID: 108331382424753422}
   lightRenderer: {fileID: 23596723038060146}
   colorBlindText: {fileID: 102135958687512958}
+  TwitchCBMode: 0
 --- !u!114 &114733853258008494
 MonoBehaviour:
   m_ObjectHideFlags: 1
