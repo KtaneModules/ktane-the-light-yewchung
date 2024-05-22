@@ -1,0 +1,15 @@
+{
+  "Author": "Yewchung",
+  "Compatibility": "Compatible",
+  "DefuserDifficulty": "Medium",
+  "Description": "Reach a goal number through inputting changing commands on a Light. Tags: light",
+  "ExpertDifficulty": "Hard",
+  "ModuleID": "notTheBinaryLight",
+  "Name": "Not The Binary Light",
+  "Origin": "Mods",
+  "Published": "2024-05-19",
+  "SortKey": "NOTBINARYLIGHT",
+  "SourceUrl": "https://github.com/yewchung/ktane-the-light",
+  "SteamID": null,
+  "Type": "Regular"
+}

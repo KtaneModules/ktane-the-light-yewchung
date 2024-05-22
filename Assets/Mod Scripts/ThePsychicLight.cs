@@ -41,10 +41,9 @@ public class ThePsychicLight : MonoBehaviour {
    private bool needsHolds = false;
 	 private bool hoverEnabled = true;
 
-
    private int stagenum = 0;
 	 private int[,] prevAnswers = new int[5,3];
-	 private int[] colorOrder = {3, 4, 1, 0};
+	 private int[] colorOrder;
 	 private int swapnum = 0;
 	 private int[][] swaps = {
 		 new int[] {1,4,2,3,2},
@@ -57,7 +56,6 @@ public class ThePsychicLight : MonoBehaviour {
 		 new int[] {1,4,3,2}
 	 };
 	 private string[] colorLetters = {"W", "B", "Y", "R", "G", "C", "M", "K"};
-	 private System.Random rand = new System.Random();
 
 
    void Awake () {
@@ -126,6 +124,7 @@ public class ThePsychicLight : MonoBehaviour {
    }
 
    void SetupModule() {
+		 colorOrder = new int[]{3, 4, 1, 0};
 		 swapnum = (Bomb.GetPortPlateCount() + Bomb.GetBatteryHolderCount()) % 8;
 		 int times = Bomb.GetSerialNumberNumbers().Count();
 		 performSwaps(colorOrder, swaps[swapnum]);
@@ -133,7 +132,7 @@ public class ThePsychicLight : MonoBehaviour {
 			 swapnum = (swapnum + 1) % 8;
 			 performSwaps(colorOrder, swaps[swapnum]);
 		 }
-		 int temp = rand.Next(4);
+		 int temp = Rnd.Range(0, 4);
 		 hoveredColor = colorOrder[temp];
 		 DebugMessage("Ordering for stage " + (stagenum + 1).ToString() + " is " + colorLetters[colorOrder[0]] + colorLetters[colorOrder[1]] + colorLetters[colorOrder[2]] + colorLetters[colorOrder[3]]);
 		 DebugMessage("Display color for stage " + (stagenum + 1).ToString() + " is " + colornames[hoveredColor]);
@@ -228,7 +227,7 @@ public class ThePsychicLight : MonoBehaviour {
 				 stagenum += 1;
 				 swapnum = (swapnum + correct) % 8;
 				 performSwaps(colorOrder, swaps[swapnum]);
-				 int temp = rand.Next(4);
+				 int temp = Rnd.Range(0,4);
 				 hoveredColor = colorOrder[temp];
 				 DebugMessage("Ordering for stage " + (stagenum + 1).ToString() + " is " + colorLetters[colorOrder[0]] + colorLetters[colorOrder[1]] + colorLetters[colorOrder[2]] + colorLetters[colorOrder[3]]);
 				 DebugMessage("Display color for stage " + (stagenum + 1).ToString() + " is " + colornames[hoveredColor]);

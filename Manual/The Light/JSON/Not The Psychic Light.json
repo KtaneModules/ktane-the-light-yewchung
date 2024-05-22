@@ -1,0 +1,15 @@
+{
+  "Author": "Yewchung",
+  "Compatibility": "Compatible",
+  "DefuserDifficulty": "Easy",
+  "Description": "Input the correct answer without seeing the labels using a Light. Tags: light",
+  "ExpertDifficulty": "Medium",
+  "ModuleID": "notThePsychicLight",
+  "Name": "Not The Psychic Light",
+  "Origin": "Mods",
+  "Published": "2024-05-19",
+  "SortKey": "NOTPSYCHICLIGHT",
+  "SourceUrl": "https://github.com/yewchung/ktane-the-light",
+  "SteamID": null,
+  "Type": "Regular"
+}

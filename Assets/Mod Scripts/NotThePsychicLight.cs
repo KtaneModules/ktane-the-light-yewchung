@@ -41,7 +41,6 @@ public class NotThePsychicLight : MonoBehaviour {
    private bool needsHolds = false;
 	 private bool hoverEnabled = true;
 
-
 	 private int[] colorOrder;
 	 private int swapnum = 0;
 	 private int[][] swaps = {
@@ -55,7 +54,6 @@ public class NotThePsychicLight : MonoBehaviour {
 		 new int[] {1,4,3,2}
 	 };
 	 private string[] colorLetters = {"W", "B", "Y", "R", "G", "C", "M", "K"};
-	 private System.Random rand = new System.Random();
 	 private int correct = 0;
 
 
@@ -133,7 +131,7 @@ public class NotThePsychicLight : MonoBehaviour {
 			 swapnum = (swapnum + 1) % 8;
 			 performSwaps(colorOrder, swaps[swapnum]);
 		 }
-		 int temp = rand.Next(4);
+		 int temp = Rnd.Range(0,4);
 		 hoveredColor = colorOrder[temp];
 		 DebugMessage("Displayed color is " + colornames[hoveredColor]);
 		 DebugMessage("Initial ordering is " + colorLetters[colorOrder[0]] + colorLetters[colorOrder[1]] + colorLetters[colorOrder[2]] + colorLetters[colorOrder[3]]);
