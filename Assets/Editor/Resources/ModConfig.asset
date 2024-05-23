@@ -14,8 +14,14 @@ MonoBehaviour:
   id: theLight
   title: The Light
   author: Yewchung
-  description: A simple light appears on your bomb. How does it work? How do you solve
-    it? That's for you to find out.
+  description: 'A simple light appears on your bomb. How does it work? How do you
+    solve it? That''s for you to find out.
+
+
+    Manuals can be found at ktane.timwi.de or in the manuals folder of your game.
+
+
+    If you find any bugs, please ping me in the Bug Report channel of the Ktane discord.'
   version: 0.1
   outputFolder: build
-  previewImage: {fileID: 2800000, guid: 19bd5ad2fe2c27c4c9c6515f9d6c872f, type: 3}
+  previewImage: {fileID: 2800000, guid: e461a7de90ffda84c872a2d345f15c7c, type: 3}
