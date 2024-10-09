@@ -299,4 +299,40 @@ public class NotThePsychicLight : MonoBehaviour {
    void DebugMessage(string message) {
 		 Debug.LogFormat("[Not The Psychic Light #{0}] {1}", ModuleId, message);
 	 }
+
+    //twitch plays
+    #pragma warning disable 414
+    private readonly string TwitchHelpMessage = @"!{0} hover [Briefly hovers over the light] | !{0} tap <1/2/3/4> [Taps the light 1-4 times]";
+    #pragma warning restore 414
+    IEnumerator ProcessTwitchCommand(string command)
+    {
+        if (command.EqualsIgnoreCase("hover"))
+        {
+            yield return null;
+            lightSelectable.OnHighlight();
+            yield return new WaitForSeconds(1f);
+            lightSelectable.OnHighlightEnded();
+            yield break;
+        }
+        string[] parameters = command.Split(' ');
+        if (parameters[0].EqualsIgnoreCase("tap"))
+        {
+            if (parameters.Length != 2)
+                yield break;
+            int times;
+            if (!int.TryParse(parameters[1], out times))
+                yield break;
+            if (times < 1 || times > 4)
+                yield break;
+            yield return null;
+            for (int i = 0; i < times; i++)
+            {
+                lightSelectable.OnInteract();
+                lightSelectable.OnInteractEnded();
+                yield return new WaitForSeconds(.1f);
+            }
+            yield return "solve";
+            yield return "strike";
+        }
+    }
 }
