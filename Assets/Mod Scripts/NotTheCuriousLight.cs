@@ -333,4 +333,34 @@ public class NotTheCuriousLight : MonoBehaviour {
    void DebugMessage(string message) {
 		 Debug.LogFormat("[Not The Curious Light #{0}] {1}", ModuleId, message);
 	 }
+
+    //twitch plays
+    #pragma warning disable 414
+    private readonly string TwitchHelpMessage = @"!{0} tap/t [Taps the light] | !{0} long-press/lp [Long-presses the light] | Commands are chainable with spaces";
+    #pragma warning restore 414
+    IEnumerator ProcessTwitchCommand(string command)
+    {
+        string[] parameters = command.Split(' ');
+        for (int i = 0; i < parameters.Length; i++)
+        {
+            if (!parameters[i].ToLowerInvariant().EqualsAny("tap", "t", "long-press", "lp"))
+                yield break;
+        }
+        yield return null;
+        for (int i = 0; i < parameters.Length; i++)
+        {
+            if (parameters[i].ToLowerInvariant().EqualsAny("tap", "t"))
+            {
+                lightSelectable.OnInteract();
+                lightSelectable.OnInteractEnded();
+            }
+            else
+            {
+                lightSelectable.OnInteract();
+                while ((DateTime.UtcNow - timer).TotalMilliseconds < 300) yield return null;
+                lightSelectable.OnInteractEnded();
+            }
+            yield return new WaitForSeconds(.1f);
+        }
+    }
 }

@@ -275,4 +275,39 @@ public class TheLight : MonoBehaviour {
    void DebugMessage(string message) {
 		 Debug.LogFormat("[The Light #{0}] {1}", ModuleId, message);
 	 }
+
+    //twitch plays
+    #pragma warning disable 414
+    private readonly string TwitchHelpMessage = @"!{0} tap <1/2/4> [Taps the light 1, 2, or 4 times] | Taps are chainable with spaces";
+    #pragma warning restore 414
+    IEnumerator ProcessTwitchCommand(string command)
+    {
+        string[] parameters = command.Split(' ');
+        if (parameters[0].EqualsIgnoreCase("tap"))
+        {
+            if (parameters.Length < 2)
+                yield break;
+            for (int i = 1; i < parameters.Length; i++)
+            {
+                int times;
+                if (!int.TryParse(parameters[1], out times))
+                    yield break;
+                if (times != 1 && times != 2 && times != 4)
+                    yield break;
+            }
+            yield return null;
+            for (int i = 1; i < parameters.Length; i++)
+            {
+                for (int j = 0; j < int.Parse(parameters[i]); j++)
+                {
+                    lightSelectable.OnInteract();
+                    lightSelectable.OnInteractEnded();
+                    yield return new WaitForSeconds(.1f);
+                }
+                while (taps > 0) yield return null;
+            }
+            yield return "solve";
+            yield return "strike";
+        }
+    }
 }
